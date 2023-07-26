@@ -51,10 +51,9 @@ import java.util.Map;
 @SpringBootApplication
 public class BatchConfiguration {
 
-    private static final File INPUT_CONCEPTS = new File("./input/input");
-    private static final File OUTPUT_DYNAMICPROGRAMMING_SIM = new File("./output/output");
-
-    private static final String PATH_OWL_ONTOLOGY = "./input/family.owl";
+    private static final File INPUT_CONCEPTS = new File("/Users/siranutakarawuthi/Code/Ontop/sim-preference-elh/batch-owl-dynamicprogramming-sim/input/input");
+    private static final File OUTPUT_DYNAMICPROGRAMMING_SIM = new File("/Users/siranutakarawuthi/Code/Ontop/sim-preference-elh/batch-owl-dynamicprogramming-sim/output/output");
+    private static String PATH_OWL_ONTOLOGY = "/Users/siranutakarawuthi/Code/Ontop/sim-preference-elh/batch-owl-dynamicprogramming-sim/output/output.owl";
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
@@ -196,5 +195,16 @@ public class BatchConfiguration {
     public static void main(String[] args) throws Exception {
         System.exit(SpringApplication
                 .exit(SpringApplication.run(BatchConfiguration.class, args)));
+    }
+
+    public void setOntologyFilePath(String ontologyFilePath) {
+        File owlOntologyFile = new File(ontologyFilePath);
+        if (!owlOntologyFile.exists()) {
+            System.out.println("The specified ontology file does not exist: " + ontologyFilePath);
+            System.exit(1);
+        }
+
+        // Set the PATH_OWL_ONTOLOGY to the provided file path
+        PATH_OWL_ONTOLOGY = ontologyFilePath;
     }
 }

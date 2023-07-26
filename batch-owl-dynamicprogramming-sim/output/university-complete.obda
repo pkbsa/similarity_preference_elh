@@ -1,0 +1,33 @@
+[PrefixDeclaration]
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+owl:		http://www.w3.org/2002/07/owl#
+xsd:		http://www.w3.org/2001/XMLSchema#
+obda:		https://w3id.org/obda/vocabulary#
+
+[MappingDeclaration] @collection [[
+mappingId	MAPPING-ID1
+target		<http://example.org/voc/DOCTORS/DOCTOR_ID={DOCTOR_ID}> a <http://example.org/voc/DOCTORS> ; <http://example.org/voc/DOCTORS#DOCTOR_ID> {DOCTOR_ID}^^xsd:integer ; <http://example.org/voc/DOCTORS#DOCTOR_NAME> {DOCTOR_NAME}^^xsd:string ; <http://example.org/voc/DOCTORS#SPECIALIZATION> {SPECIALIZATION}^^xsd:string ; <http://example.org/voc/DOCTORS#PATIENT_ID> {PATIENT_ID}^^xsd:integer . 
+source		SELECT * FROM "HOSPITAL1"."DOCTORS"
+
+mappingId	MAPPING-ID2
+target		<http://example.org/voc/DOCTORS/DOCTOR_ID={DOCTORS_DOCTOR_ID}> <http://example.org/voc/DOCTORS#ref-PATIENT_ID> <http://example.org/voc/PATIENTS/PATIENT_ID={PATIENTS_PATIENT_ID}> . 
+source		SELECT "HOSPITAL1"."DOCTORS"."DOCTOR_ID" AS "DOCTORS_DOCTOR_ID", "HOSPITAL1"."PATIENTS"."PATIENT_ID" AS "PATIENTS_PATIENT_ID" FROM "HOSPITAL1"."DOCTORS", "HOSPITAL1"."PATIENTS" WHERE "HOSPITAL1"."DOCTORS"."PATIENT_ID" = "HOSPITAL1"."PATIENTS"."PATIENT_ID"
+
+mappingId	MAPPING-ID3
+target		<http://example.org/voc/PATIENTS/PATIENT_ID={PATIENT_ID}> a <http://example.org/voc/PATIENTS> ; <http://example.org/voc/PATIENTS#PATIENT_ID> {PATIENT_ID}^^xsd:integer ; <http://example.org/voc/PATIENTS#PATIENT_NAME> {PATIENT_NAME}^^xsd:string ; <http://example.org/voc/PATIENTS#PATIENT_AGE> {PATIENT_AGE}^^xsd:integer ; <http://example.org/voc/PATIENTS#PATIENT_GENDER> {PATIENT_GENDER}^^xsd:string . 
+source		SELECT * FROM "HOSPITAL1"."PATIENTS"
+
+mappingId	MAPPING-ID4
+target		<http://example.org/voc/DOCTOR_INFO/DOCTOR_INFO_ID={DOCTOR_INFO_ID}> a <http://example.org/voc/DOCTOR_INFO> ; <http://example.org/voc/DOCTOR_INFO#DOCTOR_INFO_ID> {DOCTOR_INFO_ID}^^xsd:integer ; <http://example.org/voc/DOCTOR_INFO#DOCTOR_FULL_NAME> {DOCTOR_FULL_NAME}^^xsd:string ; <http://example.org/voc/DOCTOR_INFO#SPECIALTY> {SPECIALTY}^^xsd:string ; <http://example.org/voc/DOCTOR_INFO#PATIENT_RECORD_ID> {PATIENT_RECORD_ID}^^xsd:integer . 
+source		SELECT * FROM "HOSPITAL2"."DOCTOR_INFO"
+
+mappingId	MAPPING-ID5
+target		<http://example.org/voc/DOCTOR_INFO/DOCTOR_INFO_ID={DOCTOR_INFO_DOCTOR_INFO_ID}> <http://example.org/voc/DOCTOR_INFO#ref-PATIENT_RECORD_ID> <http://example.org/voc/PATIENT_RECORDS/PATIENT_RECORD_ID={PATIENT_RECORDS_PATIENT_RECORD_ID}> . 
+source		SELECT "HOSPITAL2"."DOCTOR_INFO"."DOCTOR_INFO_ID" AS "DOCTOR_INFO_DOCTOR_INFO_ID", "HOSPITAL2"."PATIENT_RECORDS"."PATIENT_RECORD_ID" AS "PATIENT_RECORDS_PATIENT_RECORD_ID" FROM "HOSPITAL2"."DOCTOR_INFO", "HOSPITAL2"."PATIENT_RECORDS" WHERE "HOSPITAL2"."DOCTOR_INFO"."PATIENT_RECORD_ID" = "HOSPITAL2"."PATIENT_RECORDS"."PATIENT_RECORD_ID"
+
+mappingId	MAPPING-ID6
+target		<http://example.org/voc/PATIENT_RECORDS/PATIENT_RECORD_ID={PATIENT_RECORD_ID}> a <http://example.org/voc/PATIENT_RECORDS> ; <http://example.org/voc/PATIENT_RECORDS#PATIENT_RECORD_ID> {PATIENT_RECORD_ID}^^xsd:integer ; <http://example.org/voc/PATIENT_RECORDS#FULL_NAME> {FULL_NAME}^^xsd:string ; <http://example.org/voc/PATIENT_RECORDS#AGE_YEARS> {AGE_YEARS}^^xsd:integer ; <http://example.org/voc/PATIENT_RECORDS#GENDER> {GENDER}^^xsd:string . 
+source		SELECT * FROM "HOSPITAL2"."PATIENT_RECORDS"
+]]
+

@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/voc#"
+     xml:base="http://example.org/voc"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://example.org/voc"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://example.org/voc/course#ref-lab_teacher -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/voc/course#ref-lab_teacher"/>
+    
+
+
+    <!-- http://example.org/voc/course#ref-lecturer -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/voc/course#ref-lecturer"/>
+    
+
+
+    <!-- http://example.org/voc/course-registration#ref-c_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/voc/course-registration#ref-c_id"/>
+    
+
+
+    <!-- http://example.org/voc/course-registration#ref-s_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/voc/course-registration#ref-s_id"/>
+    
+
+
+    <!-- http://example.org/voc/registration#ref-cid -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/voc/registration#ref-cid"/>
+    
+
+
+    <!-- http://example.org/voc/registration#ref-pid -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/voc/registration#ref-pid"/>
+    
+
+
+    <!-- http://example.org/voc/teaching#ref-a_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/voc/teaching#ref-a_id"/>
+    
+
+
+    <!-- http://example.org/voc/teaching#ref-c_id -->
+
+
+    <owl:ObjectProperty rdf:about="http://example.org/voc/teaching#ref-c_id"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://example.org/voc/academic#a_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/academic#a_id"/>
+    
+
+
+    <!-- http://example.org/voc/academic#first_name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/academic#first_name"/>
+    
+
+
+    <!-- http://example.org/voc/academic#last_name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/academic#last_name"/>
+    
+
+
+    <!-- http://example.org/voc/academic#position -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/academic#position"/>
+    
+
+
+    <!-- http://example.org/voc/course#c_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/course#c_id"/>
+    
+
+
+    <!-- http://example.org/voc/course#cid -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/course#cid"/>
+    
+
+
+    <!-- http://example.org/voc/course#lab_teacher -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/course#lab_teacher"/>
+    
+
+
+    <!-- http://example.org/voc/course#lecturer -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/course#lecturer"/>
+    
+
+
+    <!-- http://example.org/voc/course#title -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/course#title"/>
+    
+
+
+    <!-- http://example.org/voc/course#topic -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/course#topic"/>
+    
+
+
+    <!-- http://example.org/voc/course-registration#c_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/course-registration#c_id"/>
+    
+
+
+    <!-- http://example.org/voc/course-registration#s_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/course-registration#s_id"/>
+    
+
+
+    <!-- http://example.org/voc/person#fname -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/person#fname"/>
+    
+
+
+    <!-- http://example.org/voc/person#lname -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/person#lname"/>
+    
+
+
+    <!-- http://example.org/voc/person#pid -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/person#pid"/>
+    
+
+
+    <!-- http://example.org/voc/person#status -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/person#status"/>
+    
+
+
+    <!-- http://example.org/voc/registration#cid -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/registration#cid"/>
+    
+
+
+    <!-- http://example.org/voc/registration#pid -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/registration#pid"/>
+    
+
+
+    <!-- http://example.org/voc/student#first_name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/student#first_name"/>
+    
+
+
+    <!-- http://example.org/voc/student#last_name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/student#last_name"/>
+    
+
+
+    <!-- http://example.org/voc/student#s_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/student#s_id"/>
+    
+
+
+    <!-- http://example.org/voc/teaching#a_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/teaching#a_id"/>
+    
+
+
+    <!-- http://example.org/voc/teaching#c_id -->
+
+
+    <owl:DatatypeProperty rdf:about="http://example.org/voc/teaching#c_id"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://example.org/voc/academic -->
+
+
+    <owl:Class rdf:about="http://example.org/voc/academic"/>
+    
+
+
+    <!-- http://example.org/voc/course -->
+
+
+    <owl:Class rdf:about="http://example.org/voc/course"/>
+    
+
+
+    <!-- http://example.org/voc/course-registration -->
+
+
+    <owl:Class rdf:about="http://example.org/voc/course-registration"/>
+    
+
+
+    <!-- http://example.org/voc/person -->
+
+
+    <owl:Class rdf:about="http://example.org/voc/person"/>
+    
+
+
+    <!-- http://example.org/voc/registration -->
+
+
+    <owl:Class rdf:about="http://example.org/voc/registration"/>
+    
+
+
+    <!-- http://example.org/voc/student -->
+
+
+    <owl:Class rdf:about="http://example.org/voc/student"/>
+    
+
+
+    <!-- http://example.org/voc/teaching -->
+
+
+    <owl:Class rdf:about="http://example.org/voc/teaching"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.20) https://github.com/owlcs/owlapi/ -->
+
+

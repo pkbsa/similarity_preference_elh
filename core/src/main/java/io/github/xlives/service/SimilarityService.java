@@ -128,100 +128,49 @@ public class SimilarityService {
     // Public //////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public BigDecimal measureOWLConcetpsWithTopDownSim(String conceptName1, String conceptName2) {
+    //Refactor -> merge into a single private method / different Parameter
+    private BigDecimal measureSimilarity(String conceptName1, String conceptName2, IConceptUnfolder conceptUnfolder, IRoleUnfolder roleUnfolder, IReasoner reasoner) {
         if (conceptName1 == null || conceptName2 == null) {
-            throw new JSimPiException("Unable measure with top down Sim as conceptName1[" + conceptName1 + "] and " +
+            throw new JSimPiException("Unable to measure similarity as conceptName1[" + conceptName1 + "] and " +
                     "conceptName2[" + conceptName2 + "] are null.", ErrorCode.OWLSimService_IllegalArguments);
         }
 
-        Tree<Set<String>> tree1 = unfoldAndConstructTree(conceptDefinitionUnfolderManchesterSyntax, conceptName1);
-        Tree<Set<String>> tree2 = unfoldAndConstructTree(conceptDefinitionUnfolderManchesterSyntax, conceptName2);
+        Tree<Set<String>> tree1 = unfoldAndConstructTree(conceptUnfolder, conceptName1);
+        Tree<Set<String>> tree2 = unfoldAndConstructTree(conceptUnfolder, conceptName2);
 
-        return computeSimilarity(topDownSimReasonerImpl, superRoleUnfolderManchesterSyntax, tree1, tree2);
+        return computeSimilarity(reasoner, roleUnfolder, tree1, tree2);
+    }
+
+    public BigDecimal measureOWLConcetpsWithTopDownSim(String conceptName1, String conceptName2) {
+        return measureSimilarity(conceptName1, conceptName2, conceptDefinitionUnfolderManchesterSyntax, superRoleUnfolderManchesterSyntax, topDownSimReasonerImpl);
     }
 
     public BigDecimal measureOWLConceptsWithTopDownSimPi(String conceptName1, String conceptName2) {
-        if (conceptName1 == null || conceptName2 == null) {
-            throw new JSimPiException("Unable measure with top down SimPi as conceptName1[" + conceptName1 + "] and " +
-                    "conceptName2[" + conceptName2 + "] are null.", ErrorCode.OWLSimService_IllegalArguments);
-        }
-
-        Tree<Set<String>> tree1 = unfoldAndConstructTree(conceptDefinitionUnfolderManchesterSyntax, conceptName1);
-        Tree<Set<String>> tree2 = unfoldAndConstructTree(conceptDefinitionUnfolderManchesterSyntax, conceptName2);
-
-        return computeSimilarity(topDownSimPiReasonerImpl, superRoleUnfolderManchesterSyntax, tree1, tree2);
+        return measureSimilarity(conceptName1, conceptName2, conceptDefinitionUnfolderManchesterSyntax, superRoleUnfolderManchesterSyntax, topDownSimPiReasonerImpl);
     }
 
     public BigDecimal measureOWLConceptsWithDynamicProgrammingSim(String conceptName1, String conceptName2) {
-        if (conceptName1 == null || conceptName2 == null) {
-            throw new JSimPiException("Unable measure with dynamic programming Sim as conceptName1[" + conceptName1 + "] and " +
-                    "conceptName2[" + conceptName2 + "] are null.", ErrorCode.OWLSimService_IllegalArguments);
-        }
-
-        Tree<Set<String>> tree1 = unfoldAndConstructTree(conceptDefinitionUnfolderManchesterSyntax, conceptName1);
-        Tree<Set<String>> tree2 = unfoldAndConstructTree(conceptDefinitionUnfolderManchesterSyntax, conceptName2);
-
-        return computeSimilarity(dynamicProgrammingSimReasonerImpl, superRoleUnfolderManchesterSyntax, tree1, tree2);
+        return measureSimilarity(conceptName1, conceptName2, conceptDefinitionUnfolderManchesterSyntax, superRoleUnfolderManchesterSyntax, dynamicProgrammingSimReasonerImpl);
     }
 
     public BigDecimal measureOWLConceptsWithDynamicProgrammingSimPi(String conceptName1, String conceptName2) {
-        if (conceptName1 == null || conceptName2 == null) {
-            throw new JSimPiException("Unable measure with dynamic programming SimPi as conceptName1[" + conceptName1 + "] and " +
-                    "conceptName2[" + conceptName2 + "] are null.", ErrorCode.OWLSimService_IllegalArguments);
-        }
-
-        Tree<Set<String>> tree1 = unfoldAndConstructTree(conceptDefinitionUnfolderManchesterSyntax, conceptName1);
-        Tree<Set<String>> tree2 = unfoldAndConstructTree(conceptDefinitionUnfolderManchesterSyntax, conceptName2);
-
-        return computeSimilarity(dynamicProgrammingSimPiReasonerImpl, superRoleUnfolderManchesterSyntax, tree1, tree2);
+        return measureSimilarity(conceptName1, conceptName2, conceptDefinitionUnfolderManchesterSyntax, superRoleUnfolderManchesterSyntax, dynamicProgrammingSimPiReasonerImpl);
     }
 
     public BigDecimal measureKRSSConcetpsWithTopDownSim(String conceptName1, String conceptName2) {
-        if (conceptName1 == null || conceptName2 == null) {
-            throw new JSimPiException("Unable measure with top down Sim as conceptName1[" + conceptName1 + "] and " +
-                    "conceptName2[" + conceptName2 + "] are null.", ErrorCode.OWLSimService_IllegalArguments);
-        }
-
-        Tree<Set<String>> tree1 = unfoldAndConstructTree(conceptDefinitionUnfolderKRSSSyntax, conceptName1);
-        Tree<Set<String>> tree2 = unfoldAndConstructTree(conceptDefinitionUnfolderKRSSSyntax, conceptName2);
-
-        return computeSimilarity(topDownSimReasonerImpl, superRoleUnfolderKRSSSyntax, tree1, tree2);
+        return measureSimilarity(conceptName1, conceptName2, conceptDefinitionUnfolderKRSSSyntax, superRoleUnfolderKRSSSyntax, topDownSimReasonerImpl);
     }
 
     public BigDecimal measureKRSSConceptsWithTopDownSimPi(String conceptName1, String conceptName2) {
-        if (conceptName1 == null || conceptName2 == null) {
-            throw new JSimPiException("Unable measure with top down SimPi as conceptName1[" + conceptName1 + "] and " +
-                    "conceptName2[" + conceptName2 + "] are null.", ErrorCode.OWLSimService_IllegalArguments);
-        }
-
-        Tree<Set<String>> tree1 = unfoldAndConstructTree(conceptDefinitionUnfolderKRSSSyntax, conceptName1);
-        Tree<Set<String>> tree2 = unfoldAndConstructTree(conceptDefinitionUnfolderKRSSSyntax, conceptName2);
-
-        return computeSimilarity(topDownSimPiReasonerImpl, superRoleUnfolderKRSSSyntax, tree1, tree2);
+        return measureSimilarity(conceptName1, conceptName2, conceptDefinitionUnfolderKRSSSyntax, superRoleUnfolderKRSSSyntax, topDownSimPiReasonerImpl);
     }
 
     public BigDecimal measureKRSSConceptsWithDynamicProgrammingSim(String conceptName1, String conceptName2) {
-        if (conceptName1 == null || conceptName2 == null) {
-            throw new JSimPiException("Unable measure with dynamic programming Sim as conceptName1[" + conceptName1 + "] and " +
-                    "conceptName2[" + conceptName2 + "] are null.", ErrorCode.OWLSimService_IllegalArguments);
-        }
-
-        Tree<Set<String>> tree1 = unfoldAndConstructTree(conceptDefinitionUnfolderKRSSSyntax, conceptName1);
-        Tree<Set<String>> tree2 = unfoldAndConstructTree(conceptDefinitionUnfolderKRSSSyntax, conceptName2);
-
-        return computeSimilarity(dynamicProgrammingSimReasonerImpl, superRoleUnfolderKRSSSyntax, tree1, tree2);
+        return measureSimilarity(conceptName1, conceptName2, conceptDefinitionUnfolderKRSSSyntax, superRoleUnfolderKRSSSyntax, dynamicProgrammingSimReasonerImpl);
     }
 
     public BigDecimal measureKRSSConceptsWithDynamicProgrammingSimPi(String conceptName1, String conceptName2) {
-        if (conceptName1 == null || conceptName2 == null) {
-            throw new JSimPiException("Unable measure with dynamic programming SimPi as conceptName1[" + conceptName1 + "] and " +
-                    "conceptName2[" + conceptName2 + "] are null.", ErrorCode.OWLSimService_IllegalArguments);
-        }
-
-        Tree<Set<String>> tree1 = unfoldAndConstructTree(conceptDefinitionUnfolderKRSSSyntax, conceptName1);
-        Tree<Set<String>> tree2 = unfoldAndConstructTree(conceptDefinitionUnfolderKRSSSyntax, conceptName2);
-
-        return computeSimilarity(dynamicProgrammingSimPiReasonerImpl, superRoleUnfolderKRSSSyntax, tree1, tree2);
+        return measureSimilarity(conceptName1, conceptName2, conceptDefinitionUnfolderKRSSSyntax, superRoleUnfolderKRSSSyntax, dynamicProgrammingSimPiReasonerImpl);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

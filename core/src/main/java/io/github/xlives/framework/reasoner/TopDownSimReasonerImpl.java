@@ -19,7 +19,10 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
 @Component("topDownSimReasonerImpl")
 public class TopDownSimReasonerImpl implements IReasoner {
